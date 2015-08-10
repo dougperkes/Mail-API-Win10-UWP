@@ -85,6 +85,7 @@ Now that the Office 365 Service refernece has been addded to the project, we can
         }
     
     ```
+
 ## Converters to improve display ##
 In order to display the email dates and attachment icon in a user-friendly manner, we will create a couple of converters which will be used by the XAML.
 
@@ -92,9 +93,9 @@ Create a new folder in your project named `Converters`.
  
 ### NullableBoolVisibilityConverter ###
 
-The NullableBoolVisibilityConverter class will convert from a nullable bool into a Visibility enumeration. This will allow us to determine whether the attachment icon will be visible within the email list.
+The `NullableBoolVisibilityConverter` class will convert from a nullable bool into a Visibility enumeration. This will allow us to determine whether the attachment icon will be visible within the email list.
 
-Create a new class named NullableBoolVisibilityConverter within the Converters folder and insert the following code:
+Create a new class named `NullableBoolVisibilityConverter` within the Converters folder and insert the following code:
 
     ```csharp
     
@@ -127,9 +128,9 @@ Create a new class named NullableBoolVisibilityConverter within the Converters f
     ```
 
 ### EmailDateToStringConverter ###
-The EmailDateToStringConverter will do basic date formatting to show dates in a more friendly manner.
+The `EmailDateToStringConverter` will do basic date formatting to show dates in a more friendly manner.
 
-Create a new class named EmailDateToStringConverter within the Converter folder and insert the following code:
+Create a new class named `EmailDateToStringConverter` within the Converter folder and insert the following code:
 
     ```csharp
     
@@ -180,13 +181,13 @@ Create a new class named EmailDateToStringConverter within the Converter folder 
 
 ## Creating the main page ##
 
-The next step is to modify the MainPage.xaml.cs file to test the connection to Office 365.
+Modify the MainPage.xaml.cs file to test the connection to Office 365.
  
 1. Open MainPage.xaml and change the display to *13.3" Desktop (1280 x 720) 100% scale*:
  ![](http://i.imgur.com/nbTWSTn.png)
 2. We need to import the a few namespaces so that we can reference them within our XAML. Add the following within the `<Page` element: 
 
-    ```
+    ```xml
         xmlns:outlook="using:Microsoft.Office365.OutlookServices"
         xmlns:converters="using:MailClientWin10App.Converters"
     ```
@@ -195,8 +196,7 @@ The next step is to modify the MainPage.xaml.cs file to test the connection to O
 
     ```xml
     
-        <Page.Resources>
-    
+        <Page.Resources>   
             <DataTemplate x:Key="MasterListViewItemTemplate" x:DataType="outlook:IMessage">
                 <StackPanel Margin="12,11,12,13">
                     <Grid Grid.ColumnSpan="2">
